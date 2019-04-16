@@ -1,7 +1,7 @@
 const path = require('path')
 
 module.exports = {
-  mode: 'development',
+  mode: 'production', // production || development
   entry: './src/entry.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
