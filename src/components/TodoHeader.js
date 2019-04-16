@@ -2,10 +2,23 @@ import React from 'react'
 import { Input } from 'antd'
 
 class TodoHeader extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      inputValue: ''
+    }
+  }
+
+  updateInputValue(event) {
+    this.setState({
+      inputValue: event.target.value
+    })
+    console.log(this.state.inputValue)
+  }
 
   handleKeyUp(e) {
     if(e.keyCode == 13) {
-      let value = e.target.value
+      let value = this.state.inputValue
       if(!value) return false;
       let date = new Date().Format("yyyy-MM-dd hh:mm")
       let newTodoItem = {
@@ -13,7 +26,7 @@ class TodoHeader extends React.Component {
         isDone: false,
         time: date
       }
-      e.target.value = ''
+      this.setState({inputValue: ''})
       this.props.addTodo(newTodoItem)
     }
   }
@@ -44,6 +57,8 @@ class TodoHeader extends React.Component {
           autoFocus
           ref="input"
           type="text"
+          value={this.state.inputValue}
+          onChange={event=> this.updateInputValue(event)}
           placeholder="请输入"
           onKeyUp={this.handleKeyUp.bind(this)} />
       </div>
