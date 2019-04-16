@@ -1,5 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import TodoHeader from "./TodoHeader";
+import TodoMain from "./TodoMain";
 
 class App extends React.Component {
   constructor() {
@@ -9,33 +11,16 @@ class App extends React.Component {
     }
   }
 
-  handleKeyUp(e) {
-    if(e.keyCode == 13) {
-      let value = e.target.value
-      if(!value) return false
-      let newTodoItem = {
-        text: value,
-        isDone: false
-      }
-      e.target.value = ''
-      this.state.todos.push(newTodoItem)
-      this.setState({todos: this.state.todos})
-    }
+  addTodo(item) {
+    this.state.todos.push(item)
+    this.setState({todos: this.state.todos})
   }
 
   render() {
     return (
-      <div className="todo-input">
-        <input type="text" 
-          placeholder="请输入"
-          onKeyUp={this.handleKeyUp.bind(this)} />
-        <ul>
-          {this.state.todos.map((todo, index) => {
-            return (
-              <li key={index}> {todo.text} </li>
-            )
-          })}
-        </ul>
+      <div className="todo-wrapper">
+        <TodoHeader addTodo={this.addTodo.bind(this)}/>
+        <TodoMain todos={this.state.todos} />
       </div>
     )
   }

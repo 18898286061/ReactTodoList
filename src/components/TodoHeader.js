@@ -1,52 +1,27 @@
 import React from 'react'
-import { Input } from 'antd'
 
 class TodoHeader extends React.Component {
-  // 绑定键盘回车事件，添加新任务
-  handlerKeyUp(e) {
+
+  handleKeyUp(e) {
     if(e.keyCode == 13) {
-      let value = e.target.value;
-      if(!value) return false;
-      let date = new Date().Format("yyyy-MM-dd hh:mm")
+      let value = e.target.value
+      if(!value) return false
       let newTodoItem = {
         text: value,
-        isDone: false,
-        time: date
-      };
-      e.target.value = '';
+        isDone: false
+      }
+      e.target.value = ''
       this.props.addTodo(newTodoItem)
     }
   }
-  componentWillMount() {
-    //日期格式化
-    Date.prototype.Format = function (fmt) {
-      var o = {
-        "M+": this.getMonth() + 1, //月份
-        "d+": this.getDate(), //日
-        "h+": this.getHours(), //小时
-        "m+": this.getMinutes(), //分
-        "s+": this.getSeconds(), //秒
-        "q+": Math.floor((this.getMonth() + 3) / 3), //季度
-        "S": this.getMilliseconds() //毫秒
-      };
-      if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
-      for (var k in o)
-        if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
-      return fmt;
-    }
-  }
-  render(){
+
+  render() {
     return (
-        <div className="todo-header">
-          <h1 className="todo-title">React-Todos</h1>
-          <Input 
-            autoFocus 
-            ref="input" 
-            onKeyUp={this.handlerKeyUp.bind(this)}
-            type="text" 
-            placeholder="请输入你的任务名称，按回车键确认"/>
-        </div>
+      <input type="text" 
+          placeholder="请输入"
+          onKeyUp={this.handleKeyUp.bind(this)} />
     )
   }
 }
+
 export default TodoHeader
