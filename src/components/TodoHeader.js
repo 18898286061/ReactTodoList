@@ -39,7 +39,7 @@ class TodoHeader extends React.Component {
   render() {
     return (
       <div className="todo-header">
-        <h1 className="todo-title">React待办事项</h1>
+        <h1 className="todo-title">React - TodoList</h1>
         <Input
           autoFocus
           ref="input"

@@ -9,7 +9,7 @@ class TodoMain extends React.Component {
       )
     } else {
       return (
-        <ul>
+        <ul className="todo-main">
           {this.props.todos.map((todo, index) => {
             return (
               <TodoItem

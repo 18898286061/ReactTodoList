@@ -21,7 +21,7 @@ class TodoItem extends React.Component {
   }
 
   render() {
-    let className = this.props.isDone? 'tesk-done' : ''
+    let className = this.props.isDone? 'task-done' : ''
     return (
       <li 
         onMouseOver={this.handleMouseIn.bind(this)}
@@ -32,7 +32,7 @@ class TodoItem extends React.Component {
           onChange={this.handleChange.bind(this)} />
 
         <span className="time">{this.props.time}</span>
-        <span className = {className + 'task'}>{this.props.text}</span>
+        <span className = {className + ' task'}>{this.props.text}</span>
 
         <Button
           ref="delButton"
