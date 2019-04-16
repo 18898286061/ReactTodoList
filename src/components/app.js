@@ -36,7 +36,7 @@ class App extends React.Component {
   // 判断是否所有任务的状态都完成，同步底部的全选框
   allChecked() {
     let isAllChecked = false
-    if (this.state.todos.every(todo=> todo.inDone)) {
+    if (this.state.todos.every(todo=> todo.isDone)) {
       isAllChecked = true
     }
     this.setState({
