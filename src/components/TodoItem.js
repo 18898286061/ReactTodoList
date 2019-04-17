@@ -31,8 +31,10 @@ class TodoItem extends React.Component {
           checked={this.props.isDone}
           onChange={this.handleChange.bind(this)} />
 
-        <span className="time">{this.props.time}</span>
-        <span className = {className + ' task'}>{this.props.text}</span>
+        <span className="time-task">
+          <span className="time">{this.props.time}</span>
+          <span className = {className + ' task'}>{this.props.text}</span>
+        </span>
 
         <Button
           ref="delButton"

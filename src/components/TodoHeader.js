@@ -13,7 +13,6 @@ class TodoHeader extends React.Component {
     this.setState({
       inputValue: event.target.value
     })
-    console.log(this.state.inputValue)
   }
 
   handleKeyUp(e) {

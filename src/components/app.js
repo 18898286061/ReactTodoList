@@ -9,9 +9,13 @@ import TodoFooter from "./TodoFooter";
 import { Radio } from 'antd';
 import AV from 'leancloud-storage'
 
-const appId = '4nzW7YS0g3rEXgnPhuuQbrUA-gzGzoHsz';
-const appKey = 'tgB1H92tuN9EOfxK90N7j2Dt';
-AV.init({ appId, appKey });
+var APP_ID = '4nzW7YS0g3rEXgnPhuuQbrUA-gzGzoHsz';
+var APP_KEY = 'tgB1H92tuN9EOfxK90N7j2Dt';
+
+AV.init({
+  appId: APP_ID,
+  appKey: APP_KEY
+});
 
 class App extends React.Component {
   constructor() {
