@@ -2,6 +2,7 @@ const path = require('path')
 
 module.exports = {
   mode: 'production', // production || development
+  devtool: 'source-map', // cheap-module-source-map
   entry: './src/entry.js',
   output: {
     path: path.resolve(__dirname, 'dist'),

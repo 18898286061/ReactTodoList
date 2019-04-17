@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input } from 'antd'
+import { Input, Button } from 'antd'
 
 class TodoHeader extends React.Component {
   constructor(props) {
@@ -31,6 +31,10 @@ class TodoHeader extends React.Component {
     }
   }
 
+  loginOut(){
+    this.props.logout()
+  }
+
   componentDidMount() {
     Date.prototype.Format = function(fmt) {
       var o = {
@@ -53,6 +57,10 @@ class TodoHeader extends React.Component {
     return (
       <div className="todo-header">
         <h1 className="todo-title">React - TodoList</h1>
+        <p className="user-info">
+          <span className="name">{"欢迎你，"+ this.props.currentUser.username}</span>
+          <Button type="primary" size="small" onClick={this.loginOut.bind(this)}>登出</Button>
+        </p>
         <Input
           autoFocus
           ref="input"
