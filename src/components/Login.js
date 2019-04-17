@@ -2,7 +2,8 @@ import React from 'react'
 import { Form, Icon, Input, Button } from 'antd'
 
 class Login extends React.Component {
-  handleSubmit(e) {
+  handleSubmit = (e)=> {
+    console.log(this)
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
@@ -11,8 +12,9 @@ class Login extends React.Component {
     });
   }
   render() {
+    console.log(this)
     const { getFieldDecorator } = this.props.form;
-    let text = this.props.value == 1? '注册' : '登录'
+    let text = this.props.value == 1 ?'注册':'登录'
     return (
       <Form onSubmit={this.handleSubmit} className="login-form">
         <Form.Item>
